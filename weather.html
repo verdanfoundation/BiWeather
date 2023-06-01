@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>BiWeather</title>
+        <link rel="icon" href="ico/favicon.png">
+        <link rel="stylesheet" href="css/weather.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster Two|Comfortaa|Open Sans|Jost">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+            integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+            crossorigin=""/>
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+            crossorigin=""></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+        <script src="lib/Weather.js"></script>
+        <script src="lib/TemperatureColorCodes.js"></script>
+    </head>
+    <body>
+        <div class="header">
+            <div class="header-leftDIV">
+                <h1 id="title">BiWeather</h1>
+            </div>
+            <div class="header-titleDIV">
+            </div>
+            <div class="header-rightDIV">
+            </div>
+        </div>
+        <div id="root">
+            <div id="bi-live-root">
+                <div id="bi-live">
+                    <h2>BI-Live</h2>
+                    <img id="weather-icon" src="ico/weather/0_1.png" width="128px" height="128px">
+                    <h1 id="temperature">-</h1><br>
+                    <div class="live-element">
+                        <div class="live-icon">
+                            <img src="ico/weather/ui/humidity.png" class="live-img">
+                        </div>
+                        <div class="live-info">
+                            <p class="live-text">Wilgotność</p>
+                            <p class="live-value" id="humidity">-</p>
+                        </div>
+                    </div>
+                    <div class="live-element">
+                        <div class="live-icon">
+                            <img src="ico/weather/ui/dewpoint.png" class="live-img">
+                        </div>
+                        <div class="live-info">
+                            <p class="live-text">Temperatura punktu rosy</p>
+                            <p class="live-value" id="dewpoint">-</p>
+                        </div>
+                    </div>
+                    <div class="live-element">
+                        <div class="live-icon">
+                            <img src="ico/weather/ui/apparent-temperature.png" class="live-img">
+                        </div>
+                        <div class="live-info">
+                            <p class="live-text">Temperatura odczuwalna</p>
+                            <p class="live-value" id="apparent-temperature">-</p>
+                        </div>
+                    </div>
+                    <div class="live-element">
+                        <div class="live-icon">
+                            <img src="ico/weather/ui/precipitation-propability.png" class="live-img">
+                        </div>
+                        <div class="live-info">
+                            <p class="live-text">Prawdopodobieństwo opadów</p>
+                            <p class="live-value" id="precipitation-propability">-</p>
+                        </div>
+                    </div>
+                    <div class="live-element">
+                        <div class="live-icon">
+                            <img src="ico/weather/ui/rain.png" class="live-img">
+                        </div>
+                        <div class="live-info">
+                            <p class="live-text">Deszcz</p>
+                            <p class="live-value" id="rain">-</p>
+                        </div>
+                    </div>
+                    <div class="live-element">
+                        <div class="live-icon">
+                            <img src="ico/weather/ui/surface-pressure.png" class="live-img">
+                        </div>
+                        <div class="live-info">
+                            <p class="live-text">Ciśnienie rzeczywiste</p>
+                            <p class="live-value" id="surface-pressure">-</p>
+                        </div>
+                    </div>
+                    <div class="live-element">
+                        <div class="live-icon">
+                            <img src="ico/weather/ui/cloudcover.png" class="live-img">
+                        </div>
+                        <div class="live-info">
+                            <p class="live-text">Zachmurzenie</p>
+                            <p class="live-value" id="cloudcover">-</p>
+                        </div>
+                    </div>
+                    <div class="live-element">
+                        <div class="live-icon">
+                            <img src="ico/weather/ui/visibility.png" class="live-img">
+                        </div>
+                        <div class="live-info">
+                            <p class="live-text">Widoczność</p>
+                            <p class="live-value" id="visibility">-</p>
+                        </div>
+                    </div>
+                    <div class="live-element">
+                        <div class="live-icon">
+                            <img src="ico/weather/ui/wind-speed.png" class="live-img">
+                        </div>
+                        <div class="live-info">
+                            <p class="live-text">Prędkość wiatru</p>
+                            <p class="live-value" id="wind-speed">-</p>
+                        </div>
+                    </div>
+                    <div class="live-element">
+                        <div class="live-icon">
+                            <img src="ico/weather/ui/wind-direction.png" class="live-img">
+                        </div>
+                        <div class="live-info">
+                            <p class="live-text">Kierunek wiatru</p>
+                            <p class="live-value" id="wind-direction">-</p>
+                        </div>
+                    </div>
+                    <div class="live-element">
+                        <div class="live-icon">
+                            <img src="ico/weather/ui/wind-gusts.png" class="live-img">
+                        </div>
+                        <div class="live-info">
+                            <p class="live-text">Porywy wiatru</p>
+                            <p class="live-value" id="wind-gusts">-</p>
+                        </div>
+                    </div>
+                    <div class="live-element">
+                        <div class="live-icon">
+                            <img src="ico/weather/ui/soil-temperature.png" class="live-img">
+                        </div>
+                        <div class="live-info">
+                            <p class="live-text">Temperatura gleby</p>
+                            <p class="live-value" id="soil-temperature">-</p>
+                        </div>
+                    </div>
+                    <div class="live-element">
+                        <div class="live-icon">
+                            <img src="ico/weather/ui/soil-moisture.png" class="live-img">
+                        </div>
+                        <div class="live-info">
+                            <p class="live-text">Wilgotność gleby</p>
+                            <p class="live-value" id="soil-moisture">-</p>
+                            <!--https://api.open-meteo.com/v1/forecast?latitude=50.16&longitude=22.42&hourly=temperature_2m,rain,weathercode,surface_pressure,windspeed_10m,temperature_180m&current_weather=true&timeformat=unixtime&forecast_days=16&timezone=Europe%2FBerlin-->
+                            <!--https://api.open-meteo.com/v1/forecast?latitude=50.16&longitude=22.42&hourly=temperature_2m,relativehumidity_2m,dewpoint_2m,apparent_temperature,precipitation_probability,rain,weathercode,surface_pressure,cloudcover,visibility,windspeed_10m,winddirection_10m,windgusts_10m,soil_temperature_0cm,soil_moisture_0_1cm,uv_index,is_day&current_weather=true&timeformat=unixtime&forecast_days=16-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="forecast-root"></div>
+            <div id="info-root">
+                <h2>Informacje</h2>
+                <div id="map"></div>
+            </div>
+        </div>
+        <script src="js/getCurrentWeather.js"></script>
+        <script src="js/showOnMap.js"></script>
+    </body>
+</html>

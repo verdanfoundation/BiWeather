@@ -1,0 +1,118 @@
+body {
+    background-color: #2E3440;
+    margin: 0;
+}
+
+.header {
+    display: flex;
+    padding: 16px;
+    background: #4C566A;
+    text-align: center;
+}
+
+.header-titleDIV {
+    flex: 20%;
+}
+
+.header-leftDIV {
+    flex: 40%;
+    text-align: left;
+}
+
+.header-rightDIV {
+    flex: 40%;
+    text-align: right;
+}
+
+#title {
+    font-family: 'Lobster Two', sans-serif;
+    color: #ECEFF4;
+    font-size: 48px;
+    margin: 0px;
+}
+
+h2 {
+    font-family: 'Comfortaa', sans-serif;
+    color: #ECEFF4;
+}
+
+#temperature {
+    font-family: 'Jost', sans-serif;
+    color: #ECEFF4;
+    border-radius: 8px;
+    font-size: 40px;
+    margin: 0;
+}
+
+.live-element {
+    display: flex;
+    margin: auto;
+    width: 100%;
+}
+
+.live-icon {
+    flex: 30%;
+    text-align: right;
+}
+
+.live-img {
+    width: 48px;
+    height: 48px;
+}
+
+.live-info {
+    flex: 70%;
+    text-align: left;
+    margin-left: 4px;
+}
+
+.live-text {
+    font-family: 'Open Sans', sans-serif;
+    color: #E5E9F0;
+    font-size: 10px;
+    margin-bottom: 0px;
+}
+
+.live-value {
+    font-family: 'Open Sans', sans-serif;
+    color: #ECEFF4;
+    font-size: 18px;
+    margin-top: 0px;
+}
+
+p {
+    font-family: 'Open Sans', sans-serif;
+    color: #ECEFF4;
+}
+
+#root {
+    margin: 16px;
+    text-align: center;
+    display: flex;
+}
+
+#bi-live-root {
+    flex: 15%;
+}
+
+#forecast-root {
+    flex: 70%;
+}
+
+#info-root {
+    flex: 15%;
+}
+
+
+#bi-live, #info-root {
+    padding: 8px 16px;
+    background-color: #3B4252;
+    border-radius: 16px;
+}
+
+#map {
+    width: 100%;
+    height: 180px;
+    border-radius: 8px;
+    margin: auto;
+}

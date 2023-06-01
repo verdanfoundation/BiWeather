@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>BiWeather</title>
+        <link rel="icon" href="ico/favicon.png">
+        <link rel="stylesheet" href="css/index.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster Two|Comfortaa|Open Sans">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+            integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+            crossorigin=""/>
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+            crossorigin=""></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+        <script src="lib/Coordinates.js"></script>
+    </head>
+    <body>
+        <div class="header">
+            <div class="header-leftDIV"></div>
+            <div class="header-titleDIV">
+                <h1 id="title">BiWeather</h1>
+            </div>
+            <div class="header-rightDIV">
+                <input id="cityname" placeholder="Nazwa miejscowości">
+                <div id="show-weather" class="weather-disabled">
+                    <img src="ico/search-enabled.png" height="24px" width="24px">
+                </div>
+            </div>
+        </div>
+        <div id="root">
+            <h2>Kliknij na mapę, aby wybrać lokalizację:</h2>
+            <div id="map"></div>
+        </div>
+        <script src="js/index.js"></script>
+    </body>
+</html>
